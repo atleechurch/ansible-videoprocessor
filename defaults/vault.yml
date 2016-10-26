@@ -1,0 +1,13 @@
+---
+   #
+   # These variables are referenced by the vars file, so make sure to override
+   # and encrypt this file as needed.  The Bucket and Destination address are
+   # in here as a precaution to prevent possible social engineering or attack vectors
+   # for downloading files.
+   #
+
+   # s3cmd options -- IMPT: Make sure AWS ID only has put permissions
+   VAULT_AWS_VIDEO_BUCKET: "BUCKET_NAME"                                  # Bucket to upload recordings to
+   VAULT_AWS_VIDEO_ACCESS: "AWS_ACCESS_KEY"                               # Amazon Access Key
+   VAULT_AWS_VIDEO_SECRET: "AWS_SECRET_KEY"                               # Amazon Secret Key
+   VAULT_AWS_VIDEO_DESTINATION: "DESTINATION@DOMAIN.EXT"                  # Address to send to

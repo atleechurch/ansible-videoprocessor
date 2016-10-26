@@ -1,0 +1,6 @@
+---
+  - name: Process_Video - Add the process_video.sh script
+    template: src=process_video.sh.j2 dest=/usr/local/bin/process_video.sh mode=0755
+
+  - name: Process Video - Add upload_video.sh script
+    template: src=upload_video.sh.j2 dest=/usr/local/bin/upload_video.sh mode=0755

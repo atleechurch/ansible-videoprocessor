@@ -1,0 +1,20 @@
+---
+   #
+   # The Following variables are for the
+   # process_video.sh script primarily but
+   # could be reused as needed.
+   #
+
+   # Program locations
+   ffmpeg: "/usr/local/bin/ffmpeg"  # Location of ffmpeg binary
+   s3cmd: "/usr/local/bin/s3cmd"    # Locatino of the s3cmd binary
+
+   # s3cmd options -- IMPT: Make sure AWS ID only has put permissions
+   bucket: "{{ VAULT_AWS_VIDEO_BUCKET }}"       # Bucket to upload recordings to
+   access: "{{ VAULT_AWS_VIDEO_ACCESS }}"     # Amazon Access Key
+   secret: "{{ VAULT_AWS_VIDEO_SECRET }}"     # Amazon Secret Key
+
+   # mail options
+   location: "http://{{ bucket }}.s3.amazonaws.com/"  # Location of uploaded recordings
+   subject: "File Link"                               # Subject
+   address: "{{ VAULT_AWS_VIDEO_DESTINATION }}"                   # Address to send to

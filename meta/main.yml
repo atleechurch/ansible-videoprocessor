@@ -1,0 +1,5 @@
+---
+ dependencies:
+   - { role: common }
+   - { role: ffmpeg }
+   - { role: nginx, nginx_rtmp_module: true }

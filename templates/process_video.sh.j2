@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Options to be passed to script
+path=$1  # path
+dirname=$2
+basename=$3
+
+# Program locations
+ffmpeg={{ ffmpeg }}
+s3cmd={{ s3cmd }}
+
+# s3cmd options -- IMPT: Make sure AWS ID only has put permissions
+bucket={{ bucket }}
+access={{ access }}
+secret={{ secret }}
+
+# mail options
+location={{ location }}
+subject={{ subject }}
+address={{ address }}
+
+$ffmpeg -i $path -c copy $dirname/$basename.mp4 
+s3out = $($s3cmd --access_key=$access --secret_key=$secret put $dirname/$basename.mp4 -rr -P s3://$bucket/)
+printf "Subject: Stream Recording URL\n\n $location$basename.mp4\n$s3out" | ssmtp -F "Atlee Stream File Delivery Service" $address 
